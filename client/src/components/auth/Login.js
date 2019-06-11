@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import classNames from "classnames";
 import { connect } from "react-redux";
 import { loginUser } from "../../actions/authActions";
+import TextFieldGroup from "../common/TextFieldGroup";
 //
 class Login extends Component {
   constructor() {
@@ -58,7 +59,23 @@ class Login extends Component {
               Sing in to your DevConnector accout
             </p>
             <form onSubmit={this.onSubmit}>
-              <div className="form-group">
+              <TextFieldGroup
+                placeholder="Email Address"
+                name="email"
+                type="email"
+                value={this.state.email}
+                onChange={this.onChange}
+                error={errors.email}
+              />
+              <TextFieldGroup
+                placeholder="password"
+                name="password"
+                type="password"
+                value={this.state.password}
+                onChange={this.onChange}
+                error={errors.password}
+              />
+              {/*<div className="form-group">
                 <input
                   type="email"
                   // className="form-control form-control-lg"
@@ -74,6 +91,7 @@ class Login extends Component {
                   <div className="invalid-feedback">{errors.email}</div>
                 )}
               </div>
+                
               <div className="form-group">
                 <input
                   type="password"
@@ -89,7 +107,7 @@ class Login extends Component {
                 {errors.password && (
                   <div className="invalid-feedback">{errors.password}</div>
                 )}
-              </div>
+              </div> */}
               <input type="submit" className="btn btn-info btn-block mt-4" />
             </form>
           </div>
